@@ -1,20 +1,21 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono } from 'next/font/google';
+import './globals.css';
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "Random Civ Picker",
-  description: "Application for randomized picking civilizations in Civilization 6",
+  title: 'Random Civ Picker',
+  description: 'Application for randomized picking civilizations in Civilization 6',
+  keywords: 'Civilization 6, Civ 6, random picker, civilization randomizer, Sid Meier, strategy game, Civ VI picker, multiplayer tool, game balance',
   icons: {
     icon: [
       { url: '/favicon.ico' },

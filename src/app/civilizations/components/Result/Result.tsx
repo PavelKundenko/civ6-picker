@@ -38,7 +38,7 @@ export const Result: FC<IResultProps> = ({
                 />
               ))}
 
-              <div className='col-span-full my-4 border-t border-gray-300 dark:border-gray-700'></div>
+              <div className='col-span-full my-4 border-t border-gray-300 dark:border-gray-700' />
             </div>
           </div>
         ))}
