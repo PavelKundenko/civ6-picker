@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { CivCard } from '@/app/civilizations/components/CivCard/CivCard';
-import { IPlayerDraft } from '@/app/civilizations/models/step';
+import { IPlayerDraft } from '@/models/civiliations/step';
 import { Toolbar } from '@/ui-components/Toolbar';
 import { Button } from '@/ui-components/Button';
 

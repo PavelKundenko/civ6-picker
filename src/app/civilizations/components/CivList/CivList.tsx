@@ -6,9 +6,9 @@ import {
   useState,
   type FC,
 } from 'react';
-import { type ICiv } from '@/app/civilizations/models/civ';
+import { type ICiv } from '@/models/civiliations/civ';
 import { CivCard } from '@/app/civilizations/components/CivCard/CivCard';
-import { searchCivs } from '@/app/helpers/utils';
+import { searchCivs } from '@/helpers/utils';
 import { Toolbar } from '@/ui-components/Toolbar';
 import { Input } from '@/ui-components/Input';
 import { Button } from '@/ui-components/Button';
@@ -23,7 +23,10 @@ export const CivList: FC<ICivListProps> = ({
   onNextStep,
 }) => {
   const [search, setSearch] = useState('');
-  const [bannedIds, setBannedIds] = useState<number[]>([]);
+  const [bannedIds, setBannedIds] = useState<number[]>(data
+    .filter((civ) => civ.isBannedByDefault)
+    .map((civ) => civ.id),
+  );
 
   const toggleBan = (id: number, isBanned: boolean) => {
     if (isBanned) {

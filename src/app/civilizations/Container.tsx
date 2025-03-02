@@ -1,12 +1,12 @@
 'use client';
 
 import { FC, useCallback, useRef, useState } from 'react';
-import { EStep, IPlayerDraft } from './models/step';
+import { EStep, IPlayerDraft } from '@/models/civiliations/step';
 import { CivList } from '@/app/civilizations/components/CivList/CivList';
-import { ICiv } from '@/app/civilizations/models/civ';
+import { ICiv } from '@/models/civiliations/civ';
 import { Players } from '@/app/civilizations/components/Players/Players';
 import { Result } from '@/app/civilizations/components/Result/Result';
-import { suffleCivs } from '@/app/helpers/utils';
+import { suffleCivs } from '@/helpers/utils';
 
 interface IContainerProps {
   civs: ICiv[];

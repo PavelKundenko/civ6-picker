@@ -1,4 +1,4 @@
-import { ICiv } from '@/app/civilizations/models/civ';
+import { ICiv } from '@/models/civiliations/civ';
 
 export enum EStep {
   List          = 'list',

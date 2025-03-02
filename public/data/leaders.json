@@ -184,7 +184,8 @@
     "civAbility": "Mother Russia",
     "uniqueUnits": ["Cossack"],
     "uniqueInfrastructure": ["Lavra (Unique Holy Site)"],
-    "avatar": "Peter.webp"
+    "avatar": "Peter.webp",
+    "isBannedByDefault": true
   },
   {
     "id": 18,

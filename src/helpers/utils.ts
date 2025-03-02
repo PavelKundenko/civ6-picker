@@ -1,5 +1,5 @@
-import { ICiv } from '@/app/civilizations/models/civ';
-import { IPlayerDraft } from '@/app/civilizations/models/step';
+import { ICiv } from '@/models/civiliations/civ';
+import { IPlayerDraft } from '@/models/civiliations/step';
 
 export const searchCivs = (civs: ICiv[], search: string) => {
   return civs.filter((civ) =>

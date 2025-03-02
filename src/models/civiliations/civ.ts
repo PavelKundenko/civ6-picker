@@ -8,4 +8,5 @@ export interface ICiv {
   uniqueUnits: string[];
   uniqueInfrastructure: string[];
   avatar: string;
+  isBannedByDefault?: boolean;
 }

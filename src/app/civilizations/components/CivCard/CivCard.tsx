@@ -1,6 +1,7 @@
 import { type FC } from 'react';
 import Image from 'next/image';
-import { type ICiv } from '@/app/civilizations/models/civ';
+
+import { type ICiv } from '@/models/civiliations/civ';
 
 interface ICivCardProps extends ICiv {
   isBanned   : boolean;
