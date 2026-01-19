@@ -12,6 +12,7 @@ import { searchCivs } from '@/helpers/utils';
 import { Toolbar } from '@/ui-components/Toolbar';
 import { Input } from '@/ui-components/Input';
 import { Button } from '@/ui-components/Button';
+import { StepInstructions } from '@/ui-components/StepInstructions';
 
 interface ICivListProps {
   data       : ICiv[];
@@ -67,6 +68,13 @@ export const CivList: FC<ICivListProps> = ({
 
   return (
     <>
+      <StepInstructions
+        currentStep={1}
+        totalSteps={3}
+        title='Select Civilizations'
+        instructions='Click "Ban" on any civilization you want to exclude from the draft. Banned civilizations will not appear in the results.'
+      />
+
       <Toolbar>
         <div className='md:w-1/2'>
           <Input

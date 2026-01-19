@@ -10,23 +10,30 @@ export const searchCivs = (civs: ICiv[], search: string) => {
 export const suffleCivs = (
   civs: ICiv[],
   activeCivIds: number[],
-  playersNumber: number,
+  playerNames: string[],
   civsToPlayerNumber: number,
 ): IPlayerDraft[] => {
   const activeCivs = civs.filter(civ => activeCivIds.includes(civ.id));
       
-  const shuffledCivs = [...activeCivs].sort(() => Math.random() - 0.5);
+  const shuffledCivs = [...activeCivs];
+
+  for (let index = shuffledCivs.length - 1; index > 0; index--) {
+    const randomIndex = Math.floor(Math.random() * (index + 1));
+
+    [shuffledCivs[index], shuffledCivs[randomIndex]] = [shuffledCivs[randomIndex], shuffledCivs[index]];
+  }
   
   const results: IPlayerDraft[] = [];
   
-  for (let i = 0; i < playersNumber; i++) {
-    const startIndex = i * civsToPlayerNumber;
+  for (let index = 0; index < playerNames.length; index++) {
+    const startIndex = index * civsToPlayerNumber;
     const endIndex = startIndex + civsToPlayerNumber;
     
     const playerCivs = shuffledCivs.slice(startIndex, endIndex);
     
     results.push({
-      playerId: i + 1,
+      playerId: index + 1,
+      playerName: playerNames[index],
       civs: playerCivs,
     });
   }

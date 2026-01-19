@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, InputHTMLAttributes } from 'react';
+import { FC, InputHTMLAttributes, useId } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -22,7 +22,9 @@ export const Input: FC<IInputProps> = ({
   id,
   ...props
 }) => {
-  const inputId = id || `input-${label?.toLowerCase().replace(/\s+/g, '-')}`;
+  const generatedId = useId();
+
+  const inputId = id ?? (label ? generatedId : undefined);
   
   return (
     <div className={twMerge('w-full relative', className)}>

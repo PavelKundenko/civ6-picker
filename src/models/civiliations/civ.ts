@@ -1,4 +1,4 @@
-export interface ICiv {
+export interface ICivFull {
   id: number;
   civilization: string;
   leader: string;
@@ -7,6 +7,14 @@ export interface ICiv {
   civAbility: string;
   uniqueUnits: string[];
   uniqueInfrastructure: string[];
+  avatar: string;
+  isBannedByDefault?: boolean;
+}
+
+export interface ICiv {
+  id: number;
+  civilization: string;
+  leader: string;
   avatar: string;
   isBannedByDefault?: boolean;
 }

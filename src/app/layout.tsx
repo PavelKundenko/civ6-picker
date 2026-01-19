@@ -14,9 +14,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://civ6-picker.vercel.app'),
   title: 'Random Civ Picker',
   description: 'Application for randomized picking civilizations in Civilization 6',
   keywords: 'Civilization 6, Civ 6, random picker, civilization randomizer, Sid Meier, strategy game, Civ VI picker, multiplayer tool, game balance',
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    title: 'Random Civ Picker',
+    description: 'Application for randomized picking civilizations in Civilization 6',
+    url: 'https://civ6-picker.vercel.app',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Random Civ Picker',
+    description: 'Application for randomized picking civilizations in Civilization 6',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -41,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning={true}>
+    <html lang='en'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

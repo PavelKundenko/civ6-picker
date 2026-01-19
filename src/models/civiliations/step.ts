@@ -7,6 +7,7 @@ export enum EStep {
 }
 
 export interface IPlayerDraft {
-  playerId: number;
-  civs: ICiv[];
+  playerId   : number;
+  playerName : string;
+  civs       : ICiv[];
 }

@@ -3,6 +3,7 @@ import { CivCard } from '@/app/civilizations/components/CivCard/CivCard';
 import { IPlayerDraft } from '@/models/civiliations/step';
 import { Toolbar } from '@/ui-components/Toolbar';
 import { Button } from '@/ui-components/Button';
+import { StepInstructions } from '@/ui-components/StepInstructions';
 
 interface IResultProps {
   draftResults : IPlayerDraft[];
@@ -15,6 +16,13 @@ export const Result: FC<IResultProps> = ({
 }) => {
   return (
     <>
+      <StepInstructions
+        currentStep={3}
+        totalSteps={3}
+        title='Draft Results'
+        instructions='Each player has been assigned random civilizations.'
+      />
+
       <Toolbar>
         <Button
           variant='primary'
@@ -27,7 +35,7 @@ export const Result: FC<IResultProps> = ({
       <div className='space-y-4'>
         {draftResults.map((draftResult) => (
           <div key={draftResult.playerId}>
-            <h3 className='text-2xl font-bold mb-4' contentEditable suppressContentEditableWarning={true}>Player {draftResult.playerId}</h3>
+            <h3 className='text-2xl font-bold mb-4'>{draftResult.playerName}</h3>
 
             <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
               {draftResult.civs.map((civ) => (

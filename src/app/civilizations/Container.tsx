@@ -17,7 +17,7 @@ export const Container: FC<IContainerProps> = ({ civs }) => {
   const [activeCivIds, setActiveCivIds] = useState<number[]>([]);
   const [draftResults, setDraftResults] = useState<IPlayerDraft[]>([]);
 
-  const savedPlayersNumber = useRef<number | null>(null);
+  const savedPlayerNames = useRef<string[]>([]);
   const savedCivsToPlayerNumber = useRef<number | null>(null);
 
   const handleSubmitList = useCallback(
@@ -29,11 +29,11 @@ export const Container: FC<IContainerProps> = ({ civs }) => {
   );
 
   const handleDraftCivs = useCallback(
-    (playersNumber: number, civsToPlayerNumber: number) => {
-      savedPlayersNumber.current = playersNumber;
+    (playerNames: string[], civsToPlayerNumber: number) => {
+      savedPlayerNames.current = playerNames;
       savedCivsToPlayerNumber.current = civsToPlayerNumber;
 
-      const results = suffleCivs(civs, activeCivIds, playersNumber, civsToPlayerNumber);
+      const results = suffleCivs(civs, activeCivIds, playerNames, civsToPlayerNumber);
       
       setDraftResults(results);
       setStep(EStep.Result);
@@ -46,7 +46,7 @@ export const Container: FC<IContainerProps> = ({ civs }) => {
       const results = suffleCivs(
         civs,
         activeCivIds,
-        savedPlayersNumber.current as number,
+        savedPlayerNames.current,
         savedCivsToPlayerNumber.current as number,
       );
 
