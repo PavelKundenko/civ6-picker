@@ -10,11 +10,6 @@ describe('Players', () => {
     vi.clearAllMocks()
   })
 
-  it('should render step instructions', () => {
-    render(<Players civsTotalNumber={20} onNextStep={onNextStep} />)
-    expect(screen.getByText('Configure Draft Settings')).toBeInTheDocument()
-  })
-
   it('should render total players input with default value', () => {
     render(<Players civsTotalNumber={20} onNextStep={onNextStep} />)
     const input = screen.getByLabelText('Total Players')

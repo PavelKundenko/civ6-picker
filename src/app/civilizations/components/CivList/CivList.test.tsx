@@ -32,12 +32,6 @@ describe('CivList', () => {
     expect(screen.getByText('Egypt')).toBeInTheDocument()
   })
 
-  it('should render step instructions', () => {
-    render(<CivList data={mockCivs} onNextStep={onNextStep} />)
-
-    expect(screen.getByText('Select Civilizations')).toBeInTheDocument()
-  })
-
   it('should filter civs by search term', async () => {
     const user = userEvent.setup()
     render(<CivList data={mockCivs} onNextStep={onNextStep} />)

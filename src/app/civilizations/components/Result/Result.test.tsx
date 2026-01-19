@@ -36,11 +36,6 @@ describe('Result', () => {
     vi.clearAllMocks()
   })
 
-  it('should render step instructions', () => {
-    render(<Result draftResults={mockDraftResults} redraft={redraft} />)
-    expect(screen.getByText('Draft Results')).toBeInTheDocument()
-  })
-
   it('should render player names', () => {
     render(<Result draftResults={mockDraftResults} redraft={redraft} />)
     expect(screen.getByText('Alice')).toBeInTheDocument()
@@ -91,7 +86,6 @@ describe('Result', () => {
 
   it('should handle empty draft results', () => {
     render(<Result draftResults={[]} redraft={redraft} />)
-    expect(screen.getByText('Draft Results')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'Redraft' })).toBeInTheDocument()
   })
 })

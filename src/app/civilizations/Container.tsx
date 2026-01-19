@@ -2,11 +2,13 @@
 
 import { FC, useCallback, useRef, useState } from 'react';
 import { EStep, IPlayerDraft } from '@/models/civiliations/step';
+import { STEP_CONFIG, TOTAL_STEPS } from '@/helpers/stepConfig';
 import { CivList } from '@/app/civilizations/components/CivList/CivList';
 import { ICiv } from '@/models/civiliations/civ';
 import { Players } from '@/app/civilizations/components/Players/Players';
 import { Result } from '@/app/civilizations/components/Result/Result';
 import { suffleCivs } from '@/helpers/utils';
+import { StepInstructions } from '@/ui-components/StepInstructions';
 
 interface IContainerProps {
   civs: ICiv[];
@@ -55,8 +57,17 @@ export const Container: FC<IContainerProps> = ({ civs }) => {
     [civs, activeCivIds],
   );
 
+  const currentStepConfig = STEP_CONFIG[step];
+
   return (
     <>
+      <StepInstructions
+        currentStep={currentStepConfig.stepNumber}
+        totalSteps={TOTAL_STEPS}
+        title={currentStepConfig.title}
+        instructions={currentStepConfig.instructions}
+      />
+
       {step === EStep.List && <CivList data={civs} onNextStep={handleSubmitList} />}
       {step === EStep.PlayersNumber && <Players civsTotalNumber={activeCivIds.length} onNextStep={handleDraftCivs} />}
       {step === EStep.Result && <Result draftResults={draftResults} redraft={handleRedraft} />}

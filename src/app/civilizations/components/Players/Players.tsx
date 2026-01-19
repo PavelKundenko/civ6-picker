@@ -5,7 +5,6 @@ import { FC, useCallback, useState } from 'react';
 import { Toolbar } from '@/ui-components/Toolbar';
 import { Button } from '@/ui-components/Button';
 import { Input } from '@/ui-components/Input';
-import { StepInstructions } from '@/ui-components/StepInstructions';
 
 interface IPlayersProps {
   civsTotalNumber : number;
@@ -69,13 +68,6 @@ export const Players: FC<IPlayersProps> = ({
 
   return (
     <>
-      <StepInstructions
-        currentStep={2}
-        totalSteps={3}
-        title='Configure Draft Settings'
-        instructions='Enter the number of players and how many civilizations each player should receive.'
-      />
-
       <Toolbar>
         <div className='flex gap-4'>
           <Input

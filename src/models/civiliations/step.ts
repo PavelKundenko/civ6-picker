@@ -11,3 +11,9 @@ export interface IPlayerDraft {
   playerName : string;
   civs       : ICiv[];
 }
+
+export interface IStepConfig {
+  stepNumber   : number;
+  title        : string;
+  instructions : string;
+}
